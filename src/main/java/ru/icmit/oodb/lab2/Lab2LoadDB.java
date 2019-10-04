@@ -1,6 +1,7 @@
 package ru.icmit.oodb.lab2;
 
 import com.google.gson.Gson;
+import com.google.gson.JsonSyntaxException;
 import ru.icmit.oodb.lab2.domain.Bank;
 import ru.icmit.oodb.lab2.domain.Person;
 import java.io.File;
@@ -25,7 +26,13 @@ public class Lab2LoadDB {
         return bank;
     }
 
-    public static List<Person> getPersonList() throws IOException {
+    /**
+     * Пример чтения из файла массива JSON объектов
+     * @return
+     * @throws IOException
+     * @throws JsonSyntaxException
+     */
+    public static List<Person> loadPersonList() throws IOException, JsonSyntaxException {
         String pStr = "";
         File file = new File("persons.json");
 
@@ -42,13 +49,11 @@ public class Lab2LoadDB {
         return Arrays.asList(plst);
     }
 
-
     public static void main(String[] args) {
         try {
-            getPersonList().forEach(System.out::println);
+            loadPersonList().forEach(System.out::println);
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
-
 }
