@@ -1,4 +1,4 @@
-package ru.icmit.oodb.lab1;
+package ru.icmit.oodb.lab2.domain;
 
 import java.util.List;
 

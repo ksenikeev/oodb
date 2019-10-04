@@ -1,4 +1,4 @@
-package ru.icmit.oodb.lab1;
+package ru.icmit.oodb.lab2.domain;
 
 import java.util.List;
 
@@ -11,4 +11,12 @@ public class Bank {
     public static List<Client> clients;
 
     public static List<Transaction> transactions;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 }
