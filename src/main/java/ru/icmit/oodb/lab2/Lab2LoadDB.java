@@ -28,9 +28,6 @@ public class Lab2LoadDB {
 
     /**
      * Пример чтения из файла массива JSON объектов
-     * @return
-     * @throws IOException
-     * @throws JsonSyntaxException
      */
     public static List<Person> loadPersonList() throws IOException, JsonSyntaxException {
         String pStr = "";
@@ -47,13 +44,5 @@ public class Lab2LoadDB {
         Person[] plst = gson.fromJson(pStr, Person[].class);
 
         return Arrays.asList(plst);
-    }
-
-    public static void main(String[] args) {
-        try {
-            loadPersonList().forEach(System.out::println);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
     }
 }
