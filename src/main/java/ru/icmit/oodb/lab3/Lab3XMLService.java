@@ -31,7 +31,6 @@ public class Lab3XMLService {
 
     /**
      * Метод loadBankFromXML преобразует XML документ в объект типа Bank
-     * @return
      */
     public static Bank loadBankFromXML() {
 

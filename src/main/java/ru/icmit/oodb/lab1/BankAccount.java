@@ -1,16 +1,18 @@
 package ru.icmit.oodb.lab1;
 
-class BankAccount {
 
-    public static long currentAccountNumber = 1000000000000000L;
+public class BankAccount {
 
     private long accountNumber;
 
     private double balance;
 
-    BankAccount(long accountNumber) {
+    public BankAccount(long accountNumber) {
         this.accountNumber = accountNumber;
         this.balance = 0;
+    }
+
+    public BankAccount() {
     }
 
     long getAccountNumber() {
@@ -19,6 +21,14 @@ class BankAccount {
 
     double getBalance() {
         return balance;
+    }
+
+    public void setAccountNumber(long accountNumber) {
+        this.accountNumber = accountNumber;
+    }
+
+    public void setBalance(double balance) {
+        this.balance = balance;
     }
 
     protected void increaseBalance(double cash) {
@@ -32,5 +42,13 @@ class BankAccount {
             this.balance -= cash;
             return true;
         }
+    }
+
+    @Override
+    public String toString() {
+        return "BankAccount:" +
+                "accountNumber=" + accountNumber +
+                ", balance=" + balance +
+                '\n';
     }
 }

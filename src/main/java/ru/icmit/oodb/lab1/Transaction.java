@@ -6,17 +6,14 @@ public class Transaction {
 
     private BankAccount bancAccount;
 
-    private Worker worker;
-
     private Date transactionDate;
 
     private Client client;
 
     private double amount;
 
-    public Transaction(BankAccount bancAccount, Worker worker, Client client, double amount) {
+    public Transaction(BankAccount bancAccount, Client client, double amount) {
         this.bancAccount = bancAccount;
-        this.worker = worker;
         this.transactionDate = new Date();
         this.client = client;
         this.amount = amount;
@@ -25,6 +22,9 @@ public class Transaction {
         } else {
             reduceBalance(amount);
         }
+    }
+
+    public Transaction() {
     }
 
     private void increaseBalance(double amount) {
@@ -41,14 +41,6 @@ public class Transaction {
 
     public void setBancAccount(BankAccount bancAccount) {
         this.bancAccount = bancAccount;
-    }
-
-    public Worker getWorker() {
-        return worker;
-    }
-
-    public void setWorker(Worker worker) {
-        this.worker = worker;
     }
 
     public Date getTransactionDate() {

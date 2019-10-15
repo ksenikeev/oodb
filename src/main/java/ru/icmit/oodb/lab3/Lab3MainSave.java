@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Пример, демонстрирующий сохранение (маршаллинг) объекта в XML документ
+ * Пример, демонстрирующий сохранение (marshalling) объекта в XML документ
  */
 public class Lab3MainSave {
 
