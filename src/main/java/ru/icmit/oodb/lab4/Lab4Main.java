@@ -19,9 +19,9 @@ public class Lab4Main {
             Connection connection =
                     DriverManager.getConnection( dbURL, "postgres", "post");
 
+            Lab4LoadFromDb.loadPersonList(connection);
 
-
-            List<Person> persons = Lab4LoadDB.loadPersonList();
+            List<Person> persons = Lab4LoadFromFile.loadPersonList();
 
             persons.forEach(System.out::println);
 

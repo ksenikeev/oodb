@@ -8,10 +8,14 @@ import ru.icmit.oodb.lab4.domain.Person;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.Arrays;
 import java.util.List;
 
-public class Lab4LoadDB {
+public class Lab4LoadFromDb {
 
     public static Bank load() throws IOException {
         Bank bank = null;
@@ -30,19 +34,35 @@ public class Lab4LoadDB {
     /**
      * Пример чтения из файла массива JSON объектов
      */
-    public static List<Person> loadPersonList() throws IOException, JsonSyntaxException {
+    public static List<Person> loadPersonList(Connection connection) throws JsonSyntaxException, SQLException {
         String pStr = "";
-        File file = new File("persons.json");
 
-        if (file.exists()) {
-            pStr = new String(Files.readAllBytes(file.toPath()));
-        } else {
-            System.out.println("File persons.json not found!");
+        PreparedStatement statement =
+                connection.prepareStatement("select contentb from jtest ");
+
+        ResultSet resultSet = statement.executeQuery();
+
+        while (resultSet.next()) {
+            pStr = resultSet.getString("contentb");
+            System.out.println(pStr);
         }
+
+        statement.close();
 
         Gson gson = new Gson();
 
         Person[] plst = gson.fromJson(pStr, Person[].class);
+
+
+        statement =
+                connection.prepareStatement("select contentb->1 as c from jtest ");
+
+        resultSet = statement.executeQuery();
+
+        while (resultSet.next()) {
+            pStr = resultSet.getString("c");
+            System.out.println(pStr);
+        }
 
         return Arrays.asList(plst);
     }
