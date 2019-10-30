@@ -55,7 +55,7 @@ public class Lab4LoadFromDb {
 
 
         statement =
-                connection.prepareStatement("select contentb->1 as c from jtest ");
+                connection.prepareStatement("select contentb->0 as c from jtest ");
 
         resultSet = statement.executeQuery();
 
