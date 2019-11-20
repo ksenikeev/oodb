@@ -1,0 +1,145 @@
+STEP 1: scan package ru.icmit.oodb.lab6.domain:
+	ru.icmit.oodb.lab6.domain.Person
+	ru.icmit.oodb.lab6.domain.BankAccount
+	ru.icmit.oodb.lab6.domain.Client
+	ru.icmit.oodb.lab6.domain.Bank
+	ru.icmit.oodb.lab6.domain.Worker
+	ru.icmit.oodb.lab6.domain.Transaction
+STEP 2: scan class fields:
+	Fields of class ru.icmit.oodb.lab6.domain.Person
+		firstName
+		lastName
+		phoneNumber
+		email
+	Fields of class ru.icmit.oodb.lab6.domain.BankAccount
+		currentAccountNumber
+		accountNumber
+		balance
+	Fields of class ru.icmit.oodb.lab6.domain.Client
+		bankAccounts
+	Fields of class ru.icmit.oodb.lab6.domain.Bank
+		name
+		workers
+		clients
+		transactions
+	Fields of class ru.icmit.oodb.lab6.domain.Worker
+		id
+		position
+		code
+	Fields of class ru.icmit.oodb.lab6.domain.Transaction
+		bancAccount
+		worker
+		transactionDate
+		client
+		amount
+STEP 3: scan class methods:
+	Fields of class ru.icmit.oodb.lab6.domain.Person
+		toString
+		getFirstName
+		setFirstName
+		getLastName
+		setLastName
+		getPhoneNumber
+		setPhoneNumber
+		getEmail
+		setEmail
+		wait
+		wait
+		wait
+		equals
+		hashCode
+		getClass
+		notify
+		notifyAll
+	Fields of class ru.icmit.oodb.lab6.domain.BankAccount
+		wait
+		wait
+		wait
+		equals
+		toString
+		hashCode
+		getClass
+		notify
+		notifyAll
+	Fields of class ru.icmit.oodb.lab6.domain.Client
+		createBankAccount
+		toString
+		getFirstName
+		setFirstName
+		getLastName
+		setLastName
+		getPhoneNumber
+		setPhoneNumber
+		getEmail
+		setEmail
+		wait
+		wait
+		wait
+		equals
+		hashCode
+		getClass
+		notify
+		notifyAll
+	Fields of class ru.icmit.oodb.lab6.domain.Bank
+		getName
+		setName
+		wait
+		wait
+		wait
+		equals
+		toString
+		hashCode
+		getClass
+		notify
+		notifyAll
+	Fields of class ru.icmit.oodb.lab6.domain.Worker
+		getCode
+		getPosition
+		setPosition
+		setCode
+		toString
+		getFirstName
+		setFirstName
+		getLastName
+		setLastName
+		getPhoneNumber
+		setPhoneNumber
+		getEmail
+		setEmail
+		wait
+		wait
+		wait
+		equals
+		hashCode
+		getClass
+		notify
+		notifyAll
+	Fields of class ru.icmit.oodb.lab6.domain.Transaction
+		getBancAccount
+		setBancAccount
+		getWorker
+		setWorker
+		getTransactionDate
+		setTransactionDate
+		getClient
+		setClient
+		getAmount
+		setAmount
+		wait
+		wait
+		wait
+		equals
+		toString
+		hashCode
+		getClass
+		notify
+		notifyAll
+STEP 4: scan class annotations:
+	Person is entity!
+STEP 5: scan fields annotations:
+	Field java.lang.String firstName is attribute!
+	Field java.lang.String lastName is attribute!
+	Field java.lang.String phoneNumber is attribute!
+	Field java.lang.String email is attribute!
+STEP 6: get superclass:
+	Super class of Client is ru.icmit.oodb.lab6.domain.Person

@@ -1,9 +1,21 @@
 package ru.icmit.oodb.lab6.domain;
 
+import ru.icmit.oodb.lab6.annotation.Column;
+import ru.icmit.oodb.lab6.annotation.Entity;
+
+@Entity
 public class Person {
+
+    @Column
     private String firstName;
+
+    @Column
     private String lastName;
+
+    @Column
     private String phoneNumber;
+
+    @Column
     private String email;
 
     Person(String firstName, String lastName, String phoneNumber, String email) {
