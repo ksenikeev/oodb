@@ -71,5 +71,7 @@ public class Lab6Main {
         Class superClass = Client.class.getSuperclass();
         System.out.println("\tSuper class of Client is " + superClass.getName());
 
+        superClass = Person.class.getSuperclass();
+        System.out.println("\tSuper class of Person is " + superClass.getName());
     }
 }
