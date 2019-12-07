@@ -1,11 +1,17 @@
 package ru.icmit.oodb.lab6.domain;
 
+import ru.icmit.oodb.lab6.annotation.Column;
+import ru.icmit.oodb.lab6.annotation.Entity;
+
+@Entity
 class BankAccount {
 
     public static long currentAccountNumber = 1000000000000000L;
 
+    @Column
     private long accountNumber;
 
+    @Column
     private double balance;
 
     BankAccount(long accountNumber) {

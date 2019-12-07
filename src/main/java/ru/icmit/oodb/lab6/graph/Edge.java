@@ -1,31 +1,31 @@
 package ru.icmit.oodb.lab6.graph;
 
 public class Edge {
-    private EntityNode node1;
-    private EntityNode node2;
-    private String relationType;
+    private EntityNode nodeSource;
+    private EntityNode nodeTarget;
+    private RelationType relationType;
 
-    public EntityNode getNode1() {
-        return node1;
+    public EntityNode getNodeSource() {
+        return nodeSource;
     }
 
-    public void setNode1(EntityNode node1) {
-        this.node1 = node1;
+    public void setNodeSource(EntityNode nodeSource) {
+        this.nodeSource = nodeSource;
     }
 
-    public EntityNode getNode2() {
-        return node2;
+    public EntityNode getNodeTarget() {
+        return nodeTarget;
     }
 
-    public void setNode2(EntityNode node2) {
-        this.node2 = node2;
+    public void setNodeTarget(EntityNode nodeTarget) {
+        this.nodeTarget = nodeTarget;
     }
 
-    public String getRelationType() {
+    public RelationType getRelationType() {
         return relationType;
     }
 
-    public void setRelationType(String relationType) {
+    public void setRelationType(RelationType relationType) {
         this.relationType = relationType;
     }
 }

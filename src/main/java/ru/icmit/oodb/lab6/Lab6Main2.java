@@ -10,8 +10,12 @@ import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.util.List;
 
-public class Lab6Main {
+/**
+ * Програма демонстрирует формирование графа сущностей и связей между ними
+ */
+public class Lab6Main2 {
 
+    // Пакет в котором расположены классы-сущности
     public static String PATH_FOR_SCAN = "ru.icmit.oodb.lab6.domain";
 
     public static void main(String[] args) {
