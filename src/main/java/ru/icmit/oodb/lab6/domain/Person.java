@@ -1,9 +1,7 @@
 package ru.icmit.oodb.lab6.domain;
 
 import ru.icmit.oodb.lab6.annotation.Column;
-import ru.icmit.oodb.lab6.annotation.Entity;
 
-@Entity
 public class Person {
 
     @Column

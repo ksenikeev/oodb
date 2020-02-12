@@ -4,11 +4,14 @@ import ru.icmit.oodb.lab6.annotation.Column;
 import ru.icmit.oodb.lab6.annotation.Entity;
 import ru.icmit.oodb.lab6.domain.Client;
 import ru.icmit.oodb.lab6.domain.Person;
+import ru.icmit.oodb.lab6.graph.GraphModel;
 
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
+import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Stream;
 
 /**
  * Програма демонстрирует формирование графа сущностей и связей между ними
@@ -20,12 +23,12 @@ public class Lab6Main2 {
 
     public static void main(String[] args) {
 
-        /* Просканируем пакет PATH_FOR_SCAN для поиска классов (включая вложенные пакеты)  */
-        System.out.println("STEP 1: scan package " + PATH_FOR_SCAN+":");
+        GraphModel graph = new GraphModel();
 
+        /* Сканируем пакет PATH_FOR_SCAN для поиска классов-сущностей  */
         List<Class<?>> classList = PathScan.find(PATH_FOR_SCAN);
         if (classList != null)
-            classList.forEach(c->System.out.println("\t" + c.getCanonicalName()));
+            classList.stream().filter(c -> classIsEntity(c)).forEach();
 
         System.out.println("STEP 2: scan class fields:");
         for (Class<?> cl : classList) {
@@ -78,4 +81,20 @@ public class Lab6Main2 {
         superClass = Person.class.getSuperclass();
         System.out.println("\tSuper class of Person is " + superClass.getName());
     }
+
+    private static boolean classIsEntity(Class<?> c) {
+        Annotation[] annotations = c.getAnnotations();
+        for (Annotation a : annotations) {
+            if (a.equals(Entity.class)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private static void addEntityToGraph(Class<?> c, GraphModel graph) {
+        graph.
+    }
+
+
 }

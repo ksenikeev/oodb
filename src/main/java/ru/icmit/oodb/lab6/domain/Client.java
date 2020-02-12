@@ -1,9 +1,16 @@
 package ru.icmit.oodb.lab6.domain;
 
+import ru.icmit.oodb.lab6.annotation.Column;
+import ru.icmit.oodb.lab6.annotation.Entity;
+import ru.icmit.oodb.lab6.annotation.OneToMany;
+
 import java.util.List;
 
+@Entity
 public class Client extends Person {
 
+    @Column
+    @OneToMany
     private List<BankAccount> bankAccounts;
 
     public Client(String firstName, String lastName, String phoneNumber, String email) {

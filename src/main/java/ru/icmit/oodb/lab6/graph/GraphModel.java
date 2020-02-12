@@ -9,6 +9,10 @@ public class GraphModel {
 
     private List<Edge> edges = new ArrayList<>();
 
+    public void addEntity(Class<?> c) {
+
+    }
+
     public List<EntityNode> getEntityNodeList() {
         return entityNodeList;
     }

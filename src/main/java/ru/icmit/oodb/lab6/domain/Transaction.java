@@ -1,17 +1,26 @@
 package ru.icmit.oodb.lab6.domain;
 
+import ru.icmit.oodb.lab6.annotation.Column;
+import ru.icmit.oodb.lab6.annotation.Entity;
+
 import java.util.Date;
 
+@Entity
 public class Transaction {
 
+    @Column
     private BankAccount bancAccount;
 
+    @Column
     private Worker worker;
 
+    @Column
     private Date transactionDate;
 
+    @Column
     private Client client;
 
+    @Column
     private double amount;
 
     public Transaction(BankAccount bancAccount, Worker worker, Client client, double amount) {
