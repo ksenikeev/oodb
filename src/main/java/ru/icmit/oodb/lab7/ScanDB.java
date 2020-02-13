@@ -2,6 +2,8 @@ package ru.icmit.oodb.lab7;
 
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 
 public class ScanDB {
@@ -9,19 +11,26 @@ public class ScanDB {
     private static Connection connection;
 
     public static void main(String[] args) {
-        List<String> tables = null;
-        List<String> fields = null;
+        // Структура для хранения имен таблиц и полей (в HashSet)
+        HashMap<String, HashSet<String>> tables = new HashMap<>();
 
         try(Connection connection = getConnection()) {
 
             System.out.println("Список таблиц:");
-            tables = getTables(connection);
-            tables.forEach(System.out::println);
+            List<String> tbls = getTables(connection);
+            tbls.forEach(System.out::println);
 
-            for (String table : tables) {
+            for (String table : tbls) {
                 System.out.println("Список полей таблицы "+table+":");
-                fields = getFields(connection, table);
-                fields.forEach(System.out::println);
+                List<String> fields = getFields(connection, table);
+
+                HashSet<String> hashSetFields = new HashSet<>();
+                fields.forEach(f->{
+                    System.out.println(f);
+                    hashSetFields.add(f);
+                });
+
+                tables.put(table, hashSetFields);
             }
 
         } catch (SQLException e) {
