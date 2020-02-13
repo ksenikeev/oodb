@@ -4,6 +4,7 @@ import ru.icmit.oodb.lab6.annotation.Column;
 import ru.icmit.oodb.lab6.annotation.Entity;
 import ru.icmit.oodb.lab6.annotation.OneToMany;
 import ru.icmit.oodb.lab7.annotation.Id;
+import ru.icmit.oodb.lab7.annotation.ManyToOne;
 
 import java.util.List;
 
@@ -14,6 +15,7 @@ public class Client extends Person {
     private Long id;
 
     @Column
+    @ManyToOne
     private Bank bank;
 
     @Column
