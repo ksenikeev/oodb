@@ -28,7 +28,7 @@ public class Lab6Main2 {
         /* Сканируем пакет PATH_FOR_SCAN для поиска классов-сущностей  */
         List<Class<?>> classList = PathScan.find(PATH_FOR_SCAN);
         if (classList != null)
-            classList.stream().filter(c -> classIsEntity(c)).forEach();
+            //classList.stream().filter(c -> classIsEntity(c)).forEach();
 
         System.out.println("STEP 2: scan class fields:");
         for (Class<?> cl : classList) {
@@ -93,7 +93,6 @@ public class Lab6Main2 {
     }
 
     private static void addEntityToGraph(Class<?> c, GraphModel graph) {
-        graph.
     }
 
 
