@@ -24,13 +24,13 @@ public class Lab6Main1 {
 
         List<Class<?>> classList = PathScan.find(PATH_FOR_SCAN);
         if (classList != null)
-            classList.forEach(c->System.out.println("\t" + c.getCanonicalName()));
+            classList.forEach(c->System.out.println("\t" + c.getSimpleName().toLowerCase()));
 
         System.out.println("STEP 2: scan class fields:");
         for (Class<?> cl : classList) {
             /* Сканируем поля классов */
             System.out.println("\tFields of class " + cl.getName());
-            Field[] fields = cl.getDeclaredFields();
+             ;
             for (Field field : fields) {
                 System.out.println("\t\t" + field.getName());
             }

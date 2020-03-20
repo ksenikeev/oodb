@@ -5,7 +5,7 @@ public interface EntityManager {
     /**
      * Метод сохраняет в БД объект var1
      */
-    void persist(Object var1);
+    void persist(Object var1) throws Exception;
 
     /**
      * Метод обновляет в БД данные, соответствующие объекту
