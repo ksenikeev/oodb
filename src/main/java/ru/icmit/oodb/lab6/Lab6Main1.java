@@ -8,6 +8,8 @@ import ru.icmit.oodb.lab6.domain.Person;
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
+import java.lang.reflect.ParameterizedType;
+import java.lang.reflect.Type;
 import java.util.List;
 
 /**
@@ -30,9 +32,20 @@ public class Lab6Main1 {
         for (Class<?> cl : classList) {
             /* Сканируем поля классов */
             System.out.println("\tFields of class " + cl.getName());
-             ;
-            for (Field field : fields) {
-                System.out.println("\t\t" + field.getName());
+
+            for (Field field : cl.getDeclaredFields()) {
+                System.out.println("\t\t" + field.getName() + " of type " + field.getType().getCanonicalName());
+                Type type = field.getGenericType();
+                if (type instanceof ParameterizedType) {
+                    ParameterizedType pt = (ParameterizedType) type;
+                    System.out.println("raw type: " + pt.getRawType());
+                    System.out.println("owner type: " + pt.getOwnerType());
+                    System.out.println("actual type args:");
+                    for (Type t : pt.getActualTypeArguments()) {
+                        System.out.println("    " + t);
+                    }
+                }
+
             }
         }
 
