@@ -1,4 +1,4 @@
-package domain;
+package ru.icmit.oodb.lab9.domain;
 
 import javax.persistence.*;
 import java.util.Date;

@@ -1,4 +1,4 @@
-package ru.icmit.oodb.test.model;
+package ru.icmit.oodb.test;
 
 public class CLient {
     private String name;

@@ -1,4 +1,4 @@
-package ru.icmit.oodb.test.model;
+package ru.icmit.oodb.test;
 
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlElementWrapper;

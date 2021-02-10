@@ -1,20 +1,33 @@
-package domain;
+package ru.icmit.oodb.lab12.domain;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
+import java.util.Date;
 
 @Entity
 public class Account {
+
     @Id
+    @SequenceGenerator(name="Account", sequenceName="account_seq", allocationSize=1)
+    @GeneratedValue(strategy= GenerationType.SEQUENCE, generator="Account")
     private Long id;
 
     @ManyToOne
     private Client client;
 
+    @ManyToOne
+    private Bank bank;
+
     @Column(length=20)
     private String accountNumber;
+
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date createDate;
+
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date closeDate;
+
+    @ManyToOne
+    private Currency currency;
 
     public Long getId() {
         return id;

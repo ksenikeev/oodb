@@ -1,11 +1,13 @@
-package domain;
+package ru.icmit.oodb.lab10.domain;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Client {
+
     @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "Client")
+    @SequenceGenerator(name = "Client", sequenceName = "client_seq", allocationSize=1)
     private Long id;
 
     private String name;
@@ -13,6 +15,9 @@ public class Client {
     private String passport;
 
     private String address;
+
+    @ManyToOne
+    private Bank bank;
 
     public Long getId() {
         return id;
@@ -44,5 +49,13 @@ public class Client {
 
     public void setAddress(String address) {
         this.address = address;
+    }
+
+    public Bank getBank() {
+        return bank;
+    }
+
+    public void setBank(Bank bank) {
+        this.bank = bank;
     }
 }

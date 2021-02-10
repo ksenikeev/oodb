@@ -3,9 +3,9 @@
 --
 
 -- Dumped from database version 9.6.1
--- Dumped by pg_dump version 12.0
+-- Dumped by pg_dump version 12.2
 
--- Started on 2020-02-13 10:23:06 MSK
+-- Started on 2020-05-21 10:52:29 MSK
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -79,6 +79,39 @@ CREATE TABLE public.client_bankaccount (
 ALTER TABLE public.client_bankaccount OWNER TO postgres;
 
 --
+-- TOC entry 2401 (class 0 OID 2805174)
+-- Dependencies: 185
+-- Data for Name: bank; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+INSERT INTO public.bank (id, name) VALUES (1, 'name');
+
+
+--
+-- TOC entry 2403 (class 0 OID 2805187)
+-- Dependencies: 187
+-- Data for Name: bankaccount; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+
+
+--
+-- TOC entry 2402 (class 0 OID 2805179)
+-- Dependencies: 186
+-- Data for Name: client; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+
+
+--
+-- TOC entry 2404 (class 0 OID 2805192)
+-- Dependencies: 188
+-- Data for Name: client_bankaccount; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+
+
+--
 -- TOC entry 2279 (class 2606 OID 2805178)
 -- Name: bank bank_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
@@ -105,7 +138,7 @@ ALTER TABLE ONLY public.client
     ADD CONSTRAINT client_pkey PRIMARY KEY (id);
 
 
--- Completed on 2020-02-13 10:23:06 MSK
+-- Completed on 2020-05-21 10:52:30 MSK
 
 --
 -- PostgreSQL database dump complete

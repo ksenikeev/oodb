@@ -1,3 +1,5 @@
+package ru.icmit.oodb.lab9;
+
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
