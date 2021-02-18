@@ -19,7 +19,7 @@ import java.util.stream.Stream;
 public class Lab6Main2 {
 
     // Пакет в котором расположены классы-сущности
-    public static String PATH_FOR_SCAN = "ru.icmit.oodb.lab6.domain";
+    public static String PATH_FOR_SCAN = "ru.icmit.oodb.lab6.ru.icmit.oodb.lab13.domain";
 
     public static void main(String[] args) {
 

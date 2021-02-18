@@ -1,12 +1,10 @@
-package ru.icmit.oodb.lab12.config;
+package ru.icmit.oodb.lab13.config;
 
-import org.flywaydb.core.Flyway;
 import org.hibernate.SessionFactory;
 import org.hibernate.jpa.HibernatePersistenceProvider;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.*;
 import org.springframework.core.env.Environment;
-import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.orm.hibernate5.HibernateExceptionTranslator;
@@ -22,9 +20,8 @@ import java.util.Properties;
 
 @Configuration
 @EnableTransactionManagement
-@ComponentScan("ru.icmit.oodb.lab12")
+@ComponentScan("ru.icmit.oodb.lab13")
 @PropertySource("classpath:db.properties")
-@EnableJpaRepositories("ru.icmit.oodb.lab11.ru.icmit.oodb.lab13.repository")
 public class JPAConfig {
 
     private static final String PROP_DATABASE_DRIVER = "db.driver";
@@ -39,7 +36,6 @@ public class JPAConfig {
     @Autowired
     private Environment env;
 
-
     @Bean
     public DataSource dataSource() {
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
@@ -51,18 +47,7 @@ public class JPAConfig {
         return dataSource;
     }
 
-    @Bean(initMethod = "migrate")
-    Flyway flyway(DataSource dataSource) {
-        Flyway flyway = new Flyway();
-        flyway.setBaselineOnMigrate(true);
-        flyway.setDataSource(dataSource);
-        flyway.setTable("rs_schema_version");
-        flyway.setSchemas("public");
-        return flyway;
-    }
-
     @Bean
-    @DependsOn("flyway")
     @Primary
     public EntityManagerFactory entityManagerFactory() {
         LocalContainerEntityManagerFactoryBean em = new LocalContainerEntityManagerFactoryBean();
@@ -70,7 +55,7 @@ public class JPAConfig {
         em.setPackagesToScan(env.getRequiredProperty(PROP_ENTITYMANAGER_PACKAGES_TO_SCAN));
         em.setJpaVendorAdapter(new HibernateJpaVendorAdapter());
         em.setJpaProperties(getHibernateProperties());
-        em.setPersistenceUnitName("lab12");
+        em.setPersistenceUnitName("lab13");
         em.setPersistenceProviderClass(HibernatePersistenceProvider.class);
         em.afterPropertiesSet();
         return em.getObject();
@@ -78,7 +63,6 @@ public class JPAConfig {
 
 
     @Bean
-    @DependsOn("flyway")
     public EntityManager entityManager(EntityManagerFactory entityManagerFactory ) {
         return entityManagerFactory.createEntityManager();
     }

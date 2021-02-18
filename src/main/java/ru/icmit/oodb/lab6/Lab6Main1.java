@@ -17,7 +17,7 @@ import java.util.List;
  */
 public class Lab6Main1 {
 
-    public static String PATH_FOR_SCAN = "ru.icmit.oodb.lab6.domain";
+    public static String PATH_FOR_SCAN = "ru.icmit.oodb.lab6.ru.icmit.oodb.lab13.domain";
 
     public static void main(String[] args) {
 
