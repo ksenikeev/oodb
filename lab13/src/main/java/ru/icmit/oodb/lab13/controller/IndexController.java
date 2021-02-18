@@ -38,6 +38,6 @@ public class IndexController {
         person.setName("Человек");
         entityManager.persist(person);
 
-        return entityManager.createQuery("select c from Client c").getResultList();
+        return entityManager.createQuery("select c from Person c").getResultList();
     }
 }
