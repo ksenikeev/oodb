@@ -13,6 +13,7 @@
         <module>lab10</module>
         <module>lab12</module>
         <module>lab13</module>
+        <module>lab14</module>
     </modules>
 
     <properties>
