@@ -19,6 +19,15 @@ public class ClientRepository {
         entityManager.persist(client);
     }
 
+    public Client find(Long id) {
+        return entityManager.find(Client.class, id);
+    }
+
+    @Transactional
+    public void remove(Client client) {
+        entityManager.remove(client);
+    }
+
     @Transactional
     public void save(PersonInfo personInfo) {
         entityManager.persist(personInfo);

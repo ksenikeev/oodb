@@ -17,21 +17,24 @@ public class Client {
     private String name;
 
     //@JoinColumn(name="bank_fk")
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     private Bank bank;
 
     //@JoinColumn(name = "person_info")
-    @OneToOne
+    @OneToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE,
+            CascadeType.REFRESH})
     //@JoinColumn
     private PersonInfo personInfo;
 
-    @OneToMany
+    @ManyToMany
+/*
     @JoinTable( // Этот блок позволяет определить имена полей и таблицы "вручную"
             name = "client_bankaccount",
             joinColumns = @JoinColumn(name = "client_id"),
             inverseJoinColumns = @JoinColumn(name = "accounts_id"  //,nullable = false, unique = true
         )
     )
+*/
     //@JoinColumn(name = "client_id")
     //private Collection<BankAccount> accounts;
     //@MapKey(name = "opendata")

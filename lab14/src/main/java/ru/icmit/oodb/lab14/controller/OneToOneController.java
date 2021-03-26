@@ -10,7 +10,7 @@ import ru.icmit.oodb.lab14.domain.PersonInfo;
 import java.util.List;
 
 @Controller
-@RequestMapping("o2o")
+@RequestMapping
 public class OneToOneController {
 
     @Autowired
@@ -29,23 +29,17 @@ public class OneToOneController {
 
         client.setPersonInfo(personInfo);
 
-        repository.save(personInfo);
+        //repository.save(personInfo);
         repository.save(client);
 
         return "Client added!";
     }
 
-    @GetMapping(value = "/show")
+    @GetMapping(value = "/remove")
     @ResponseBody
     public String otoB3() {
-
-        List<PersonInfo> infos = repository.getInfos();
-        String s = "";
-        if (infos != null) {
-            for (PersonInfo p : infos) {
-                s = s + p.getClient().getName() + ", ";
-            }
-        }
-        return s;
+        Client client = repository.find(2l);
+        repository.remove(client);
+        return "Deleted";
     }
 }
