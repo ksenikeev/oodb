@@ -1,10 +1,8 @@
-package ru.icmit.oodb.lab14.domain;
+package ru.icmit.oodb.lab15.domain;
 
 import javax.persistence.*;
-import java.util.Collection;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 
 @Entity
 public class Client {
