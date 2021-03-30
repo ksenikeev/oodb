@@ -1,4 +1,4 @@
-package ru.icmit.oodb.lab15.domain;
+package ru.icmit.oodb.lab16.domain;
 
 import javax.persistence.*;
 import java.util.List;

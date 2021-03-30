@@ -1,10 +1,10 @@
-package ru.icmit.oodb.lab15;
+package ru.icmit.oodb.lab16;
 
-import ru.icmit.oodb.lab15.domain.Client;
+import ru.icmit.oodb.lab16.domain.Client;
 
 import javax.persistence.EntityManager;
 
-public class Lab15Main {
+public class Lab16Main {
 
     public static void main(String[] args) {
         DbWork db = DbWork.getInstance();
