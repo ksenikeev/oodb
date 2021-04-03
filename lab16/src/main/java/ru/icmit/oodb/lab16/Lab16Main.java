@@ -15,7 +15,6 @@ public class Lab16Main {
         EntityManager entityManager = db.getEmManager();
         entityManager.getTransaction().begin();
         entityManager.persist(client);
-        entityManager.persist(client);
         entityManager.getTransaction().commit();
         db.closeEntityManager();
 

@@ -8,8 +8,9 @@
 		<class>ru.icmit.oodb.lab16.domain.Bank</class>
 		
 		<properties>
+			<property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQL9Dialect"/>
 			<property name="hibernate.connection.driver_class" value="org.postgresql.Driver"/>
-			<property name="hibernate.connection.url" value="jdbc:postgresql://127.0.0.1:5432/lab15"/>
+			<property name="hibernate.connection.url" value="jdbc:postgresql://127.0.0.1:5432/lab16"/>
 			<property name="hibernate.connection.username" value="postgres"/>
             <property name="hibernate.connection.password" value="post"/>
         	<property name="hibernate.show_sql" value="true"/>
