@@ -1,4 +1,4 @@
-package ru.icmit.oodb.lab16;
+package ru.icmit.oodb.lab17;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -34,7 +34,7 @@ public class DbWork {
 
 	private static EntityManagerFactory getEmfFactory() {
         if (emf == null) {
-			emf = Persistence.createEntityManagerFactory("lab16");
+			emf = Persistence.createEntityManagerFactory("ru.icmit.oodb.lab16");
         }
         return emf;
 	}

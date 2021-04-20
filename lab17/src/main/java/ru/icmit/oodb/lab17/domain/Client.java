@@ -1,4 +1,4 @@
-package ru.icmit.oodb.lab16.domain;
+package ru.icmit.oodb.lab17.domain;
 
 import javax.persistence.*;
 import java.util.List;
@@ -11,6 +11,9 @@ public class Client {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "client")
     @SequenceGenerator(name = "client", sequenceName = "client_seq", allocationSize=1)
     private Long id;
+
+    @Version
+    protected long version;
 
     private String name;
 
@@ -88,5 +91,9 @@ public class Client {
 
     public void setAccounts(Map<String, BankAccount> accounts) {
         this.accounts = accounts;
+    }
+
+    public long getVersion() {
+        return version;
     }
 }
