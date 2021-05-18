@@ -16,19 +16,22 @@ public class SecurityFilter implements Filter {
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain filterChain) throws IOException, ServletException {
         System.out.println("doFilter");
         String path = ((HttpServletRequest)request).getRequestURI();
+
+        //Исключаем из контроля аутентификации пути /login и /loginpage
         if ("/loginpage".equals(path) || "/login".equals(path)) {
             System.out.println("detected login pages");
             filterChain.doFilter(request, response);
             return;
         }
 
+        // Если есть живая сессия - то пользователь аутентифицирован
         HttpSession session = ((HttpServletRequest)request).getSession(false);
         if (session != null) {
             System.out.println("autentificated user");
             filterChain.doFilter(request, response);
             return;
         } else {
-            System.out.println("redirected to login page");
+            System.out.println("redirect to login page");
             ((HttpServletResponse) response).sendRedirect("/loginpage");
         }
     }

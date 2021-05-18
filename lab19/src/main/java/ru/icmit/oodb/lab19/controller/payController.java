@@ -10,7 +10,6 @@ import ru.icmit.oodb.lab19.domain.BankTransaction;
 import ru.icmit.oodb.lab19.domain.Organization;
 import ru.icmit.oodb.lab19.domain.Users;
 import ru.icmit.oodb.lab19.service.BankService;
-
 import javax.servlet.http.HttpServletRequest;
 import java.util.Date;
 
@@ -30,11 +29,10 @@ public class payController {
         return "<html><body>" +
                     "<h1>Add pay</h1>" +
                     "<form method='post' action='/addpay'>" +
-                    "Organization source:<input name='org1' type='text'/><br/>" +
-                    "Organization destantion:<input name='org2' type='text'/><br/>" +
-                    "Bank destantion id:<input name='bank' type='text'/><br/>" +
+                    "Organization source (id):<input name='org1' type='text'/><br/>" +
+                    "Organization destantion (id):<input name='org2' type='text'/><br/>" +
                     "Summ:<input name='summ' type='text'/><br/>" +
-                    "<input type='submit'>OK</input>" +
+                    "<input type='submit'/>" +
                     "<form>" +
                     "</body></html>";
     }
@@ -42,8 +40,8 @@ public class payController {
     @PostMapping(value="/addpay")
     @ResponseBody
     public String pay(HttpServletRequest request,
-                          @RequestParam(name = "org1") Long org1, @RequestParam(name = "org12") Long org2,
-                      @RequestParam(name = "bank") Long bank,  @RequestParam(name = "summ") Double summ) {
+                          @RequestParam(name = "org1") Long org1, @RequestParam(name = "org2") Long org2,
+                       @RequestParam(name = "summ") Double summ) {
 
         Users user = (Users) request.getSession(false).getAttribute("user");
 
@@ -62,13 +60,12 @@ public class payController {
         service.save(transaction);
 
         return "<html><body>" +
-                "<h1>Add pay</h1>" +
+                "<h1>Pay added! Add new pay</h1>" +
                 "<form method='post' action='/addpay'>" +
-                "Organization source:<input name='org1' type='text'/><br/>" +
-                "Organization destantion:<input name='org2' type='text'/><br/>" +
-                "Bank destantion id:<input name='bank' type='text'/><br/>" +
+                "Organization source (id):<input name='org1' type='text'/><br/>" +
+                "Organization destantion (id):<input name='org2' type='text'/><br/>" +
                 "Summ:<input name='summ' type='text'/><br/>" +
-                "<input type='submit'>OK</input>" +
+                "<input type='submit'/>" +
                 "<form>" +
                 "</body></html>";
     }

@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import ru.icmit.oodb.lab19.domain.Users;
 import ru.icmit.oodb.lab19.repository.UsersJPARepository;
 import javax.servlet.http.HttpServletRequest;
-import java.util.List;
 
 @Controller
 public class LoginController {
@@ -25,7 +24,7 @@ public class LoginController {
                 "<form method='post' action='/login'>" +
                 "login:<input name='login' type='text'/><br/>" +
                 "password:<input name='password' type='password'/><br/>" +
-                "<input type='submit'>OK</input>" +
+                "<input type='submit'/>" +
                 "<form>" +
                 "</body></html>";
     }
@@ -43,11 +42,10 @@ public class LoginController {
             return "<html><body>" +
                     "<h1>Add pay</h1>" +
                     "<form  method='post' action='/addpay'>" +
-                    "Organization source:<input name='org1' type='text'/><br/>" +
-                    "Organization destantion:<input name='org2' type='text'/><br/>" +
-                    "Bank destantion id:<input name='bank' type='text'/><br/>" +
+                    "Organization source (id):<input name='org1' type='text'/><br/>" +
+                    "Organization destantion (id):<input name='org2' type='text'/><br/>" +
                     "Summ:<input name='summ' type='text'/><br/>" +
-                    "<input type='submit'>OK</input>" +
+                    "<input type='submit'/>" +
                     "<form>" +
                     "</body></html>";
         } else {
@@ -56,7 +54,7 @@ public class LoginController {
                     "<form method='post' action='/login'>" +
                     "login:<input name='login' type='text'/><br/>" +
                     "password:<input name='password' type='password'/><br/>" +
-                    "<input type='submit'>OK</input>" +
+                    "<input type='submit'/>" +
                     "<form>" +
                     "</body></html>";
 
