@@ -21,7 +21,7 @@ public class ClientService {
     @Transactional
     public int updateClientName(Long id, String newName) {
 
-        Client client = jpaRepository.findById(id).get();
+        Client client = jpaRepository.findById(id).orElse(null);
         return repository.updateClientName(client, newName);
     }
 
@@ -42,5 +42,14 @@ public class ClientService {
 
     public List<Client> select() {
         return jpaRepository.selectDistinct();
+    }
+
+    public List<ClientPart> selectPart() {
+        return jpaRepository.selectPart();
+        //return repository.selectClientPart();
+    }
+
+    public List<Client> selectClientAccount() {
+        return jpaRepository.selectClientAccount();
     }
 }

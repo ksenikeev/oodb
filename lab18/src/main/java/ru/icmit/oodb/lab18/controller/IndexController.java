@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import ru.icmit.oodb.lab18.domain.Client;
+import ru.icmit.oodb.lab18.service.ClientPart;
 import ru.icmit.oodb.lab18.service.ClientService;
 
 import java.util.List;
@@ -21,6 +22,9 @@ public class IndexController {
     public String index() {
         return "<html><body>" +
                 "<a href='/select?id=3'>SELECT</a><br/>" +
+                "<a href='/selectclientaccount'>SELECT CLIENT ACCOUNT</a><br/>" +
+                "<a href='/selectbankclients'>SELECT CLIENTS OF BANK</a><br/>" +
+                "<a href='/selectpart'>SELECT PART</a><br/>" +
                 "<a href='/update?id=3'>UPDATE</a><br/>" +
                 "<a href='/delete?id=3'>DELETE ONE</a><br/>" +
                 "<a href='/deletemany'>DELETE MANY</a><br/>" +
@@ -93,5 +97,66 @@ public class IndexController {
                 "</body></html>";
     }
 
+    @GetMapping(value="/selectpart")
+    @ResponseBody
+    public String selectPart() {
 
+        List<ClientPart> clientList = service.selectPart();
+
+        StringBuilder clientData = new StringBuilder();
+
+        clientList.forEach(c->{
+            clientData.append(c.getId() + "," + c.getName() + ";");
+        });
+
+        return "<html><body>" +
+                "<a href='/select?id=3'>SELECT</a><br/>" +
+                "<a href='/update?id=3'>UPDATE</a><br/>" +
+                "<a href='/delete?id=3'>DELETE ONE</a><br/>" +
+                "<a href='/deletemany'>DELETE MANY</a><br/>" +
+                "<h1>" + clientData.toString() + "</h1>" +
+                "</body></html>";
+    }
+
+    @GetMapping(value="/selectclientaccount")
+    @ResponseBody
+    public String selectClientAccount() {
+
+        List<Client> clientList = service.selectClientAccount();
+
+        StringBuilder clientData = new StringBuilder();
+
+        clientList.forEach(c->{
+            clientData.append("{" + c.getId() + "," + c.getName() + ", " + c.getAccounts() + "};");
+        });
+
+        return "<html><body>" +
+                "<a href='/select?id=3'>SELECT</a><br/>" +
+                "<a href='/update?id=3'>UPDATE</a><br/>" +
+                "<a href='/delete?id=3'>DELETE ONE</a><br/>" +
+                "<a href='/deletemany'>DELETE MANY</a><br/>" +
+                "<h1>" + clientData.toString() + "</h1>" +
+                "</body></html>";
+    }
+
+    @GetMapping(value="/selectbankclients")
+    @ResponseBody
+    public String selectBankClients() {
+
+        List<Client> clientList = service.selectClientAccount();
+
+        StringBuilder clientData = new StringBuilder();
+
+        clientList.forEach(c->{
+            clientData.append("{" + c.getId() + "," + c.getName() + "};");
+        });
+
+        return "<html><body>" +
+                "<a href='/select?id=3'>SELECT</a><br/>" +
+                "<a href='/update?id=3'>UPDATE</a><br/>" +
+                "<a href='/delete?id=3'>DELETE ONE</a><br/>" +
+                "<a href='/deletemany'>DELETE MANY</a><br/>" +
+                "<h1>" + clientData.toString() + "</h1>" +
+                "</body></html>";
+    }
 }

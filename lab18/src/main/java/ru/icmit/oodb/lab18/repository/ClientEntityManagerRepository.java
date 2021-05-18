@@ -5,6 +5,7 @@ import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 import ru.icmit.oodb.lab18.domain.Client;
+import ru.icmit.oodb.lab18.service.ClientPart;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -34,4 +35,7 @@ public class ClientEntityManagerRepository {
                 .setParameter("list", clients).executeUpdate();
     }
 
+    public List<ClientPart> selectClientPart() {
+        return entityManager.createQuery("SELECT new ru.icmit.oodb.lab18.service.ClientPart(c.id, c.name) FROM Client c WHERE c.bank.id = 1").getResultList();
+    }
 }

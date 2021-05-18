@@ -30,18 +30,8 @@ public class Client {
     private PersonInfo personInfo;
 
     @ManyToMany
-/*
-    @JoinTable( // Этот блок позволяет определить имена полей и таблицы "вручную"
-            name = "client_bankaccount",
-            joinColumns = @JoinColumn(name = "client_id"),
-            inverseJoinColumns = @JoinColumn(name = "accounts_id"  //,nullable = false, unique = true
-        )
-    )
-*/
     @JoinColumn(name = "client_id")
     private Collection<BankAccount> accounts;
-    //@MapKey(name = "opendata")
-    //private Map<String, BankAccount> accounts;
 
     @ManyToMany
     @JoinTable(name = "addressofclient")
