@@ -4,7 +4,7 @@ import java.util.Date;
 
 public class Transaction {
 
-    private BankAccount bancAccount;
+    private BankAccount bankAccount;
 
     private Date transactionDate;
 
@@ -12,8 +12,8 @@ public class Transaction {
 
     private double amount;
 
-    public Transaction(BankAccount bancAccount, Client client, double amount) {
-        this.bancAccount = bancAccount;
+    public Transaction(BankAccount bankAccount, Client client, double amount) {
+        this.bankAccount = bankAccount;
         this.transactionDate = new Date();
         this.client = client;
         this.amount = amount;
@@ -28,19 +28,19 @@ public class Transaction {
     }
 
     private void increaseBalance(double amount) {
-        bancAccount.increaseBalance(amount);
+        bankAccount.increaseBalance(amount);
     }
 
     private boolean reduceBalance(double amount) {
-        return bancAccount.reduceBalance(amount);
+        return bankAccount.reduceBalance(amount);
     }
 
     public BankAccount getBancAccount() {
-        return bancAccount;
+        return bankAccount;
     }
 
-    public void setBancAccount(BankAccount bancAccount) {
-        this.bancAccount = bancAccount;
+    public void setBankAccount(BankAccount bancAccount) {
+        this.bankAccount = bankAccount;
     }
 
     public Date getTransactionDate() {
